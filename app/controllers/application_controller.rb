@@ -13,8 +13,10 @@ class ApplicationController < Sinatra::Base
 		erb :index
 	end
 
-	post '/'
-		Fweet.create(:user => params[:user], :content => params[:fweet])
+	post '/' do
+		Fweet.create(:user => params[:user], :content => params[:content])
+		@fweets = Fweet.all
+		erb :index
 	end
 
 end

@@ -7,15 +7,15 @@
 	<h1>Welcome to Fwitter!</h1>
 	
 	<ul>
-		<% @fweets.each do |fweet|%>
-			<li> <% "#{fweet.user} says: #{fweet.content}" %> </li>
+		<% @fweets.each do |fweet| %> 
+			<li> <%= "#{fweet.user} says: #{fweet.content}" %> </li>
 		<% end %>
 	</ul>
 	
 	<h3>Make a New Fweet!</h3>
 	<form action="/" method="POST">
-		<input type="text" placeholder="username">
-		<input type="text" placeholder="awesome fweet">
+		<input type="text" placeholder="username" name="user">
+		<input type="text" placeholder="awesome fweet" name="content">
     <input type="submit">
 </body>
 </html>
