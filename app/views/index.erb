@@ -1,21 +1,43 @@
 <!DOCTYPE html>
 <html>
 <head>
+	<meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- load MUI -->
+    <link href="//cdn.muicss.com/mui-0.1.18/css/mui.min.css" rel="stylesheet" type="text/css" />
+    <script src="//cdn.muicss.com/mui-0.1.18/js/mui.min.js"></script>
+
 	<title>Fwitter</title>
 </head>
 <body>
 	<h1>Welcome to Fwitter</h1>
+
+<div class="mui-container">
+  <div class="mui-panel">
+		<form action="/" method="POST">
+	  		<legend>Make a new Fweet</legend>
+	  		<div class="mui-form-group">
+				<input type="text" class="mui-form-control" placeholder="Username" name="user">
+	  		</div>
+	  		<div class="mui-form-group">
+	   			<input type="text" class="mui-form-control" placeholder="Fweet" name="content">
+	  		</div>
+	  		<button type="submit" class="mui-btn mui-btn-default mui-btn-raised">Post</button>
+		</form>
+  </div>
+</div>
+
+	<% @fweets.reverse.each do |fweet| %>
+	<div class="mui-container">
+      <div class="mui-panel">
+        <h4><%= "@#{fweet.user}"%></h2>
+        <p><%= "#{fweet.content}" %></p>
+      </div>
+    </div>
+    <% end %>
+
 	
-	<ul>
-		<% @fweets.each do |fweet| %> 
-			<li> <%= "#{fweet.user} says: #{fweet.content}" %> </li>
-		<% end %>
-	</ul>
-	
-	<h3>Make a New Fweet!</h3>
-	<form action="/" method="POST">
-		<input type="text" placeholder="username" name="user">
-		<input type="text" placeholder="awesome fweet" name="content">
-    <input type="submit">
 </body>
 </html>
+
