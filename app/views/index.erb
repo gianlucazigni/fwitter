@@ -7,23 +7,38 @@
     <!-- load MUI -->
     <link href="//cdn.muicss.com/mui-0.1.18/css/mui.min.css" rel="stylesheet" type="text/css" />
     <script src="//cdn.muicss.com/mui-0.1.18/js/mui.min.js"></script>
+    <link rel="stylesheet" type="text/css" href="../../public/stylesheets/stylesheet.css">
 
 	<title>Fwitter</title>
 </head>
 <body>
-	<h1>Welcome to Fwitter</h1>
+  <header>
+  	<div id="appbar" class="mui-appbar">
+  		<table width="100%">
+    		<tr style="vertical-align:middle;">
+      		<td class="mui-appbar-height">Left Side</td>
+      		<td class="mui-appbar-height" align="right">Right Side</td>
+    		</tr>
+  		</table>
+		</div>
+	</header>
+	
+
+	
 
 <div class="mui-container">
   <div class="mui-panel">
 		<form action="/" method="POST">
 	  		<legend>Make a new Fweet</legend>
 	  		<div class="mui-form-group">
-				<input type="text" class="mui-form-control" placeholder="Username" name="user">
+				<input type="username" class="mui-form-control" name="user" required>
+				<label class="mui-form-floating-label">Username</label>
 	  		</div>
 	  		<div class="mui-form-group">
-	   			<input type="text" class="mui-form-control" placeholder="Fweet" name="content">
+	   			<input type="text" class="mui-form-control" name="content" required>
+	   			<label class="mui-form-floating-label">Fweet</label>
 	  		</div>
-	  		<button type="submit" class="mui-btn mui-btn-default mui-btn-raised">Post</button>
+	  		<button type="submit" class="mui-btn mui-btn-primary mui-btn-raised">Post</button>
 		</form>
   </div>
 </div>
