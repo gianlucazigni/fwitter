@@ -16,7 +16,7 @@ class ApplicationController < Sinatra::Base
 	end
 
 	post '/' do
-		Fweet.create(:user => params[:user], :content => params[:content])
+		Fweet.create(:user_id => params[:user], :content => params[:content])
 		@fweets = Fweet.all
 		redirect to("/")
 	end

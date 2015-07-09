@@ -15,7 +15,7 @@
       <form class="col s12" action="/" method="POST">
       	<legend>Make a new Fweet</legend>
 		      <div class="row">
-	    			<select>
+	    			<select name="user">
 	    				<% @users.each do |user| %>
 	    					<option value="<%= user.id %>"><%= user.username %></option>
 	    				<% end %>
@@ -50,7 +50,7 @@
 				
 					<div class="card-panel">
 						<span class="blue-text text-darken-2">
-		        		<h5><%= "@#{fweet.user}"%></h5>
+		        		<h5><%= "@#{fweet.user.username}"%></h5>
 		        		</span>
 		        		<p><%= "#{fweet.content}" %></p>
 		       </div>
