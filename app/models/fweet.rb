@@ -1,16 +1,8 @@
+require_relative "../../config/environment"
+
 class Fweet < ActiveRecord::Base
 
-	
-
-
-
-
-
-
-
-
-
-
+	belongs_to :user
 
 
 # 	attr_accessor :content

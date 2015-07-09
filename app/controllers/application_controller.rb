@@ -1,5 +1,6 @@
 require_relative "../../config/environment.rb"
 require_relative "../models/fweet.rb"
+require_relative "../models/user.rb"
 
 class ApplicationController < Sinatra::Base
 
@@ -9,6 +10,7 @@ class ApplicationController < Sinatra::Base
 	end
 
 	get "/" do
+		@users = User.all
 		@fweets = Fweet.all
 		erb :index
 	end
@@ -16,7 +18,16 @@ class ApplicationController < Sinatra::Base
 	post '/' do
 		Fweet.create(:user => params[:user], :content => params[:content])
 		@fweets = Fweet.all
-		erb :index
+		redirect to("/")
+	end
+
+	get '/new_user' do
+		erb :new_user
+	end
+
+	post '/new_user' do
+		User.create(username: params[:username], first_name: params[:firstname], last_name: params[:lastname])
+		redirect to("/")
 	end
 
 end
