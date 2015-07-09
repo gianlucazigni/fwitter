@@ -1,58 +1,69 @@
 <!DOCTYPE html>
 <html>
 <head>
-	<meta charset="utf-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <!-- load MUI -->
-    <link href="//cdn.muicss.com/mui-0.1.18/css/mui.min.css" rel="stylesheet" type="text/css" />
-    <script src="//cdn.muicss.com/mui-0.1.18/js/mui.min.js"></script>
-    <link rel="stylesheet" type="text/css" href="../../public/stylesheets/stylesheet.css">
+	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+	<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1.0"/>
 
 	<title>Fwitter</title>
+	
+	<link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+  <link href="../../stylesheets/materialize.css" type="text/css" rel="stylesheet" media="screen,projection"/>
 </head>
 <body>
-  <header>
-  	<div id="appbar" class="mui-appbar">
-  		<table width="100%">
-    		<tr style="vertical-align:middle;">
-      		<td class="mui-appbar-height">Left Side</td>
-      		<td class="mui-appbar-height" align="right">Right Side</td>
-    		</tr>
-  		</table>
-		</div>
-	</header>
-	
+	<script type="text/javascript" src="https://code.jquery.com/jquery-2.1.1.min.js"></script>
+  <script type="text/javascript" src="../../javascripts/materialize.min.js"></script>
+  <script src="../../javascripts/myscripts.js"></script>
 
-	
-
-<div class="mui-container">
-  <div class="mui-panel">
-		<form action="/" method="POST">
-	  		<legend>Make a new Fweet</legend>
-	  		<div class="mui-form-group">
-				<input type="username" class="mui-form-control" name="user" required>
-				<label class="mui-form-floating-label">Username</label>
-	  		</div>
-	  		<div class="mui-form-group">
-	   			<input type="text" class="mui-form-control" name="content" required>
-	   			<label class="mui-form-floating-label">Fweet</label>
-	  		</div>
-	  		<button type="submit" class="mui-btn mui-btn-primary mui-btn-raised">Post</button>
-		</form>
+	<div class="navbar-fixed">
+    <nav>
+      <div class="nav-wrapper">
+        <a href="#!" class="brand-logo">Fweeter</a>
+      </div>
+    </nav>
   </div>
-</div>
+
+	<div class="fixed-action-btn" style="bottom: 45px; right: 24px;">
+    <a class="waves-effect waves-circle waves-light btn-floating btn-large red modal-trigger" href="#modal2">
+      <i class="large material-icons">mode_new</i>
+    </a>
+	</div>
+
+	<div id="modal2" class="modal">
+    <div class="modal-content">
+      <form class="col s12" action="/" method="POST">
+      	<legend>Make a new Fweet</legend>
+		      <div class="row">
+	    			<div class="input-field col s12">
+	      			<input id="username" type="text" name="user" required>
+	      			<label for="username">Username</label>
+	    			</div>
+	  			</div>
+
+		      <div class="row">
+		      	<div class="input-field col s12">
+		      	  <textarea id="textarea1" class="materialize-textarea" length="150" name="content" required></textarea>
+			        <label for="textarea1">Type a new fweet</label>
+			      </div>
+		      </div>
+		    	
+		    	<button class="btn waves-effect waves-light" type="submit" name="action">Send</button>
+
+				</div>
+		  </form>
+    </div>
+  </div>
 
 	<% @fweets.reverse.each do |fweet| %>
-	<div class="mui-container">
-      <div class="mui-panel">
-        <h4><%= "@#{fweet.user}"%></h2>
-        <p><%= "#{fweet.content}" %></p>
-      </div>
+		<div class="container">
+			<div class="card-panel">
+				<span class="blue-text text-darken-2">
+        		<h5><%= "@#{fweet.user}"%></h5>
+        		</span>
+        		<p><%= "#{fweet.content}" %></p>
+       </div>
     </div>
     <% end %>
 
-	
 </body>
 </html>
 
