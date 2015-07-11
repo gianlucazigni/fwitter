@@ -6,6 +6,7 @@ gem "activerecord"
 gem "sinatra-activerecord"
 gem "rake"
 gem "sinatra-flash"
+gem "bcrypt"
 
 group :developement do
 	gem "pry"
