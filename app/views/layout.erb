@@ -1,28 +1,42 @@
 <!DOCTYPE html>
 <html>
+
 <head>
-	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
-	<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1.0"/>
-
-	<title>Fwitter</title>
-
-	<link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
-	<link href="../../stylesheets/materialize.min.css" type="text/css" rel="stylesheet" media="screen,projection"/>
-	<link rel="stylesheet" type="text/css" href="../../stylesheets/stylesheet.css">
-
-	<script type="text/javascript" src="https://code.jquery.com/jquery-2.1.1.min.js"></script>
-	<script type="text/javascript" src="../../javascripts/materialize.min.js"></script>
-	<script src="../../javascripts/myscripts.js"></script>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1.0" />
+    <title>Fwitter</title>
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <link href="../../stylesheets/materialize.min.css" type="text/css" rel="stylesheet" media="screen,projection" />
+    <link rel="stylesheet" type="text/css" href="../../stylesheets/stylesheet.css">
+    <script type="text/javascript" src="https://code.jquery.com/jquery-2.1.1.min.js"></script>
+    <script type="text/javascript" src="../../javascripts/materialize.min.js"></script>
+    <script src="../../javascripts/myscripts.js"></script>
 </head>
 
 <body>
-	<div class="navbar-fixed">
-    	<nav class="z-depth-2">
-        	<h4>Fwitter</h4>
-    	</nav>
-  	</div>
-	<%= yield %>
+    <div class="navbar-fixed">
+        <nav class="blue">
+            <div class="nav-wrapper">
+                <a href="/" class="brand-logo">Fwitter</a>
+                <% if logged_in? %>
+                    <ul class="right hide-on-med-and-down">
+                        <a class="waves-effect waves-light btn blue darken-2" href="/logout">Logout</a>
+                    </ul>
+                    <% else %>
+                        <% end %>
+            </div>
+        </nav>
+    </div>
+    <% if flash[:error] %>
+        <div class="container">
+            <div class="card-panel col s6">
+                <p>
+                    <%=f lash[:error] %>
+                </p>
+            </div>
+        </div>
+        <% end %>
+            <%=yield %>
 </body>
-
 
 </html>

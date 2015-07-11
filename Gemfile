@@ -5,6 +5,7 @@ gem "sinatra"
 gem "activerecord"
 gem "sinatra-activerecord"
 gem "rake"
+gem "sinatra-flash"
 
 group :developement do
 	gem "pry"

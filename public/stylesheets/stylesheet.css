@@ -1,7 +1,26 @@
-h4 {
-	padding-left: 1em;
+.nav-wrapper {
+	margin-left:20px;
+	margin-right:15px
 }
 
-nav {
-	background-color: #55ACEE
+.input-field label {
+	color: #2196f3;
+}
+
+.input-field input[type=text]:focus + label {
+	color: #2196f3;
+}
+
+.input-field input[type=text]:focus {
+	border-bottom: 1px solid #2196f3;
+    box-shadow: 0 1px 0 0 #2196f3;
+}
+
+.input-field input[type=textarea]:focus + label {
+	color: #2196f3;
+}
+
+.input-field input[type=textarea]:focus {
+	border-bottom: 1px solid #2196f3;
+    box-shadow: 0 1px 0 0 #2196f3;
 }

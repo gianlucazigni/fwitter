@@ -2,63 +2,38 @@
 <html>
 
 <body>
-
-	<div class="fixed-action-btn" style="bottom: 45px; right: 24px;">
-    <a class="waves-effect waves-circle waves-light btn-floating btn-large light-blue modal-trigger z-depth-2" href="#modal2">
-      <i class="large material-icons">add</i>
-    </a>
-	</div>
-
-<!-- MODAL BEGIN -->
-	<div id="modal2" class="modal">
-    <div class="modal-content">
-      <form class="col s12" action="/" method="POST">
-      	<legend>Make a new Fweet</legend>
-		      <div class="row">
-	    			<select name="user">
-	    				<% @users.each do |user| %>
-	    					<option value="<%= user.id %>"><%= user.username %></option>
-	    				<% end %>
-	    			</select>
-	  			</div>
-
-		      <div class="row">
-		      	<div class="input-field col s12">
-		      	  <textarea id="textarea1" class="materialize-textarea" length="150" name="content" required></textarea>
-			        <label for="textarea1">Type a new fweet</label>
-			      </div>
-		      </div>
-		    	
-		    	<button class="btn waves-effect waves-light" type="submit" name="action">Send</button>
-
-				</div>
-		  </form>
+    <div class="row">
+        <div class="col s4">
+            <!-- SIDEBAR START -->
+            <div class="card-panel hoverable">
+                <p>Placeholder</p>
+            </div>
+            <!-- SIDEBAR END -->
+        </div>
+        <div class="col s7">
+            <div class="card-panel hoverable">
+                <form action="/" method="POST">
+                    <div class="row">
+                        <div class="input-field">
+                            <input id="new_fweet" type="text" spellcheck="true" name="content" length="140" required>
+                            <label for="new_fweet">What's on your mind?</label>
+                        </div>
+                    </div>
+                    <button class="btn waves-effect waves-light blue" type="submit" name="action">Post</button>
+                </form>
+            </div>
+            <% @fweets.reverse.each do |fweet| %>
+                <div class="card-panel hoverable">
+                    <span class="blue-text text-darken-3">
+                        <h5><%= "@#{fweet.user.username}"%></h5>
+                        </span>
+                    <p>
+                        <%="#{fweet.content}" %>
+                    </p>
+                </div>
+                <% end %>
+        </div>
     </div>
-  </div>
-
-<!-- MODAL END -->
-
-	<div class="row">
-		<div class="col s4">
-				<div class="card-panel">
-					<p>Placeholder</p>
-				</div>
-		</div>
-
-		<div class="col s7">
-			<% @fweets.reverse.each do |fweet| %>
-				
-					<div class="card-panel">
-						<span class="blue-text text-darken-2">
-		        		<h5><%= "@#{fweet.user.username}"%></h5>
-		        		</span>
-		        		<p><%= "#{fweet.content}" %></p>
-		       </div>
-		    
-		  <% end %>
-		</div>
-	</div>
-
 </body>
-</html>
 
+</html>
