@@ -1,3 +1,7 @@
+body {
+	background-color: #e3f2fd;
+}
+
 #user_info {
 	position: fixed;
 }
