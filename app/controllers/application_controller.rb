@@ -4,6 +4,7 @@ require_relative "../models/user.rb"
 require "pry"
 require "sinatra/base"
 require "sinatra/flash"
+require "sqlite3"
 
 
 class ApplicationController < Sinatra::Base
@@ -27,7 +28,7 @@ register Sinatra::Flash
 
 	post '/login' do
 		@user = User.find_by(username: params[:username])
-		if @user
+		if @user.password == params[:password]
 			session[:user_id] = @user.id
 			redirect '/'
 		else
@@ -63,8 +64,11 @@ register Sinatra::Flash
 	end
 
 	post '/new_user' do
-		User.create(username: params[:username], first_name: params[:firstname], last_name: params[:lastname])
-		redirect to("/login")
+		@user = User.create(username: params[:username], first_name: params[:firstname], last_name: params[:lastname])
+		@user.password = params[:password]
+		@user.save
+		session[:user_id] = @user.id
+		redirect to("/")
 	end
 
 end
@@ -74,8 +78,14 @@ end
 
 def current_user
 	User.find(session[:user_id])
+
 end
 
 def logged_in?
 	session[:user_id]
+end
+
+def user_username
+	db.execute("SELECT username FROM users WHERE id = #{session[:user_id]};")
+
 end

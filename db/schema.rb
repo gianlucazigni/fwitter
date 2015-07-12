@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150709135907) do
+ActiveRecord::Schema.define(version: 20150712015221) do
 
   create_table "fweets", force: :cascade do |t|
     t.string  "content"
@@ -22,6 +22,7 @@ ActiveRecord::Schema.define(version: 20150709135907) do
     t.string "username"
     t.string "first_name"
     t.string "last_name"
+    t.string "password_hash"
   end
 
 end

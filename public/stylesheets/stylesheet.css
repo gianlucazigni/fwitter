@@ -1,3 +1,17 @@
+#user_info {
+	position: fixed;
+}
+
+.username {
+	font-size: 13px;
+
+}
+
+.content {
+	font-size: 14px;
+	line-height: 18px;
+}
+
 .nav-wrapper {
 	margin-left:20px;
 	margin-right:15px
@@ -6,21 +20,11 @@
 .input-field label {
 	color: #2196f3;
 }
-
-.input-field input[type=text]:focus + label {
+.input-field input[type]:focus + label {
 	color: #2196f3;
 }
 
-.input-field input[type=text]:focus {
-	border-bottom: 1px solid #2196f3;
-    box-shadow: 0 1px 0 0 #2196f3;
-}
-
-.input-field input[type=textarea]:focus + label {
-	color: #2196f3;
-}
-
-.input-field input[type=textarea]:focus {
+.input-field input[type]:focus {
 	border-bottom: 1px solid #2196f3;
     box-shadow: 0 1px 0 0 #2196f3;
 }
