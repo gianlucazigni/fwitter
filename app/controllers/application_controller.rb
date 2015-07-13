@@ -4,7 +4,6 @@ require_relative "../models/user.rb"
 require "pry"
 require "sinatra/base"
 require "sinatra/flash"
-require "sqlite3"
 
 
 class ApplicationController < Sinatra::Base

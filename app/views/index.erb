@@ -6,7 +6,8 @@
         
             <!-- SIDEBAR START -->
             <div id="user_info" class="card hoverable offset-s1 col s3">
-                <p></p>
+                <h4><%=  %></h4>
+                <p><%= current_user.username %></p>
             </div>
             <!-- SIDEBAR END -->
         
@@ -24,7 +25,7 @@
                             <label for="new_fweet">What's on your mind?</label>
                         </div>
                     </div>
-                    <button class="btn waves-effect waves-light blue" type="submit" name="action">Post</button>
+                    <button class="btn waves-effect waves-light blue" type="submit" name="action"><i class="material-icons left">done</i>Post</button>
                 </form>
             </div>
             </div>
