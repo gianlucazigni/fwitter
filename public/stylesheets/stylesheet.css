@@ -2,6 +2,11 @@ body {
 	background-color: #e3f2fd;
 }
 
+#info_name {
+	font-size: 18px;
+	font-weight: 600;
+}
+
 #user_info {
 	position: fixed;
 }

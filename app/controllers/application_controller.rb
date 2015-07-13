@@ -31,12 +31,24 @@ register Sinatra::Flash
 			session[:user_id] = @user.id
 			redirect '/'
 		else
-			flash[:error] = "That is not a valid username."
+			flash[:error] = "Your username or password does not match those on your account."
 			redirect '/login'
 		end	
 	end
 
-	get "/" do
+	get '/new_user' do
+		erb :new_user
+	end
+
+	post '/new_user' do
+		@user = User.create(username: params[:username], first_name: params[:firstname], last_name: params[:lastname])
+		@user.password = params[:password]
+		@user.save
+		session[:user_id] = @user.id
+		redirect to("/")
+	end
+
+	get '/' do
 		if logged_in?
 			@users = User.all
 			@fweets = Fweet.all
@@ -52,22 +64,15 @@ register Sinatra::Flash
 			redirect to("/")
 	end
 
+	get '/:user_username' do
+		@user = User.find_by(:username => params[:user_username])
+		@fweets = @user.fweets
+		erb :userprofile
+	end
+
 	get '/logout' do
 		session[:user_id] = nil
 		redirect '/login'
-	end
-
-
-	get '/new_user' do
-		erb :new_user
-	end
-
-	post '/new_user' do
-		@user = User.create(username: params[:username], first_name: params[:firstname], last_name: params[:lastname])
-		@user.password = params[:password]
-		@user.save
-		session[:user_id] = @user.id
-		redirect to("/")
 	end
 
 end
@@ -82,9 +87,4 @@ end
 
 def logged_in?
 	session[:user_id]
-end
-
-def user_username
-	db.execute("SELECT username FROM users WHERE id = #{session[:user_id]};")
-
 end

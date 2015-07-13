@@ -1,0 +1,22 @@
+<div class="row">
+    <!-- SIDEBAR START -->
+    <div id="user_info" class="card hoverable offset-s1 col s3">
+        <span id="info_name"><a href="/<%= @user.username %>"><%= @user.first_name %> <%= @user.last_name %></a></span>
+        <p>
+            <%= @user.username %>
+        </p>
+    </div>
+    <!-- SIDEBAR END -->
+    <div class="offset-s4 col s6">
+        <% @fweets.reverse.each do |fweet| %>
+            <div class="card-panel hoverable">
+                <span class="blue-text text-darken-3 username row">
+                    <a href="/<%= @user.username %>"><%= "@#{fweet.user.username}"%></a>
+                </span>
+                <span class="content row">
+                    <%= "#{fweet.content}" %>
+                </span>
+            </div>
+            <% end %>
+    </div>
+</div>
