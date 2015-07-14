@@ -52,6 +52,7 @@ register Sinatra::Flash
 		if logged_in?
 			@users = User.all
 			@fweets = Fweet.all
+			@user = User.find_by(:username => params[:user_username])
 			erb :index
 		else
 			redirect '/login'

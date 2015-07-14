@@ -1,5 +1,9 @@
 body {
-	background-color: #e3f2fd;
+	background-color: #C0DEED;
+	background-image: url("https://abs.twimg.com/images/themes/theme1/bg.png");
+	background-repeat: no-repeat;
+    background-position: right top;
+    background-attachment: fixed;
 }
 
 #info_name {
@@ -7,18 +11,32 @@ body {
 	font-weight: 600;
 }
 
-#user_info {
+/*#user_info {
 	position: fixed;
+}*/
+
+#info_name {
+	color: black;
+	
+	cursor: auto;
+}
+
+a:link, a:visited { 
+    color: inherit;
+
+    cursor: auto;
+}
+
+a:hover {
+	text-decoration: underline;
 }
 
 .username {
 	font-size: 13px;
-
 }
 
 .content {
 	font-size: 14px;
-	line-height: 18px;
 }
 
 .nav-wrapper {
