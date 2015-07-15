@@ -65,16 +65,18 @@ register Sinatra::Flash
 			redirect to("/")
 	end
 
+	get '/logout' do
+		session[:user_id] = nil
+		redirect '/login'
+	end
+
 	get '/:user_username' do
 		@user = User.find_by(:username => params[:user_username])
 		@fweets = @user.fweets
 		erb :userprofile
 	end
 
-	get '/logout' do
-		session[:user_id] = nil
-		redirect '/login'
-	end
+	
 
 end
 

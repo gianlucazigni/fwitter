@@ -8,27 +8,30 @@ body {
 
 #info_name {
 	font-size: 18px;
-	font-weight: 600;
 }
 
-/*#user_info {
-	position: fixed;
-}*/
-
-#info_name {
+#info_name:link, #info_name:visited {
+	font-size: 18px;
+	font-weight: 600;
 	color: black;
-	
-	cursor: auto;
+}
+
+#info_name:hover {
+	text-decoration: underline;
+}
+
+.button-fix {
+	color: white;
 }
 
 a:link, a:visited { 
     color: inherit;
-
     cursor: auto;
 }
 
 a:hover {
-	text-decoration: underline;
+	text-decoration: inherit;
+	color: inherit;
 }
 
 .username {
@@ -45,13 +48,22 @@ a:hover {
 }
 
 .input-field label {
-	color: #2196f3;
+	color: #8bc34a;
 }
 .input-field input[type]:focus + label {
-	color: #2196f3;
+	color: #8bc34a;
 }
 
 .input-field input[type]:focus {
-	border-bottom: 1px solid #2196f3;
-    box-shadow: 0 1px 0 0 #2196f3;
+	border-bottom: 1px solid #8bc34a;
+    box-shadow: 0 1px 0 0 #8bc34a;
+}
+
+.input-field textarea[type]:focus + label {
+	color: #8bc34a;
+}
+
+.input-field textarea[type]:focus {
+	border-bottom: 1px solid #8bc34a;
+    box-shadow: 0 1px 0 0 #8bc34a;
 }
